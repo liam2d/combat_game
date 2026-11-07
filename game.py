@@ -11,9 +11,12 @@ def get_enemy(enemy_health,enemy):
     return enemy,enemy_health
 
 def punch(enemy_health):
-    damage = random.randint(10,15)
+    damage = random.randint(8,17)
     enemy_health -= damage
-    print(f"You punched {enemy} and dealt {damage} damage. {enemy} has {max(0,enemy_health)} health left.")
+    if damage > 12:
+        print(f"Critical kit! You punched {enemy} and dealt {damage} damage. {enemy} has {max(0,enemy_health)} health left.")
+    else:
+        print(f"You punched {enemy} and dealt {damage} damage. {enemy} has {max(0,enemy_health)} health left.")
     return enemy_health
 
 def wasp_attack(player_health):
