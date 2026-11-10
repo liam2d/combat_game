@@ -55,7 +55,7 @@ while True:
     if enemy_health > 0:
         command = input(f"You have {player_health} health. Type punch to attack the {enemy}: ")
         if command == "punch":
-            enemy_health = punch(enemy_health,enemy)
+            enemy_health = punch(enemy,enemy_health)
             if enemy_health <= 0:
                 print(f"You have defeated {enemy}.")
             if enemy_health > 0:
