@@ -10,11 +10,11 @@ def get_enemy(enemy_health,enemy):
     print(f"You are fighting {enemy} with {enemy_health} health.")
     return enemy,enemy_health
 
-def punch(enemy_health):
+def punch(enemy,enemy_health):
     damage = random.randint(8,17)
     enemy_health -= damage
     if damage > 12:
-        print(f"Critical kit! You punched {enemy} and dealt {damage} damage. {enemy} has {max(0,enemy_health)} health left.")
+        print(f"Critical hit! You punched {enemy} and dealt {damage} damage. {enemy} has {max(0,enemy_health)} health left.")
     else:
         print(f"You punched {enemy} and dealt {damage} damage. {enemy} has {max(0,enemy_health)} health left.")
     return enemy_health
@@ -55,7 +55,7 @@ while True:
     if enemy_health > 0:
         command = input(f"You have {player_health} health. Type punch to attack the {enemy}: ")
         if command == "punch":
-            enemy_health = punch(enemy_health)
+            enemy_health = punch(enemy_health,enemy)
             if enemy_health <= 0:
                 print(f"You have defeated {enemy}.")
             if enemy_health > 0:
